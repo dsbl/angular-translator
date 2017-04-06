@@ -1,11 +1,11 @@
 'use strict';
 
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-
-const webpackConfig = require('../webpack.config');
-
 function init() {
+  const webpack = require('webpack');
+  const WebpackDevServer = require('webpack-dev-server');
+
+  const webpackConfig = require('../webpack.config');
+
   new WebpackDevServer(webpack(webpackConfig), {
     publicPath: webpackConfig.output.publicPath,
     hot: true,

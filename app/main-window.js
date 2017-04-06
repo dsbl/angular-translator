@@ -34,7 +34,7 @@ class MainWindow extends BrowserWindow {
         .then(file => this.webContents.send('file-loaded', file));
     });
 
-    app.on('apply-diff', (files) => {
+    app.on('apply-diff', () => {
       this.applyDiff()
         .then(file => this.webContents.send('file-loaded', file));
     });
@@ -83,7 +83,7 @@ class MainWindow extends BrowserWindow {
   applyDiff() {
     return Promise.resolve()
       .then(() => {
-        const newFile = filter(cloneDeep(this.file), ({ state }) => state !== 'old' );
+        const newFile = filter(cloneDeep(this.file), ({ state }) => state !== 'old');
 
         this.file = newFile;
 

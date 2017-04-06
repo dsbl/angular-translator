@@ -2,12 +2,12 @@
 
 const { resolve, sep } = require('path');
 
-const webpackConfig = require('../webpack.config');
-
 const config = {
   isDevelopment: process.env.NODE_ENV === 'development',
 
   get port() {
+    const webpackConfig = require('../webpack.config');
+
     return webpackConfig.devServer.port;
   },
 
